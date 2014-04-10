@@ -16,8 +16,8 @@ tweets = search['statuses']
 for tweet in tweets:
   tweetString = tweet['text']
   urlString = re.findall(r'https?://\S+',tweetString)
-  addressString = tweetString.split("%s" %urlString)
   urlString = "".join(urlString)
+  addressString = tweetString.replace("%s" %urlString,'')
   addressString = "".join(addressString)
   tweetString = "".join(tweetString)
   print "Original tweet: %s" %tweetString, '\n', "Address location: %s" %addressString, '\n', "Image url: %s" %urlString, '\n'
