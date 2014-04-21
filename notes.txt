@@ -1,9 +1,0 @@
-1. We project a map of Los Angeles.
-2. People come by and give us their zip code, or an intersection near where they live.
-3. Google maps generates the public transit route from that point to LACMA.  We can also keep a running total of the transit time.
-4. People traces over that projected map with a marker.
-5. Robots (DIY version) move over the marked routes.  As more routes are drawn the more random it looks like for the robots meandering around the city map.
-
-
-
-
