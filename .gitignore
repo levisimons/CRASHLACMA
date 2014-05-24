@@ -5,3 +5,6 @@
 # ignore IDE garbage
 .idea/*
 
+# ignore compiled python stuff
+*.pyc
+
