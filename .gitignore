@@ -1,0 +1,7 @@
+
+# ignore mac files
+.DS_Store
+
+# ignore IDE garbage
+.idea/*
+
