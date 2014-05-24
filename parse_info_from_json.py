@@ -17,6 +17,7 @@ data = json.load(json_data)
 img_url = data["entities"]["media"][0]["media_url"]
 hashtag = data["entities"]["hashtags"][0]["text"]    # won't need this parsed
 tweet = data["text"]
+# this regex scrapes out URLs. that'll need to change to handle imgs as hosted links
 tweet_text = ' '.join(re.sub("(@[A-Za-z0-9]+)|(#[A-Za-z0-9]+)|(\w+:\/\/\S+)"," ",tweet).split())
 
 print(hashtag)
