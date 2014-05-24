@@ -6,17 +6,12 @@ auth = tweepy.OAuthHandler('FE01Tcf6sDZpLG0vabqA', 'zuqcRA0XIoMU0o6swx6vzWENtWZN
 auth.set_access_token('31018035-FbvB97V4QDqoAcQAg49z1UYlgrssenP4L8cgzWah6', 'jPqA3vQkAvrjV2XUVIfjFBgHJWpNgvubrfsR6E9EJTuCH')
 api = tweepy.API(auth)
 
-# testcases:
-# hollywood & vine, hollywood and vine
-# order of operations: hashtag, img, address, other text.
-# hashtag allcaps or lowercase
-# uploaded image, link to hosted image
-
+output_file_prefix = 'crashlacma'
 
 def main():
     track = ['#CRASHLACMA']
  
-    listen = SListener(api, 'crashlacma')
+    listen = SListener(api, output_file_prefix)
     stream = tweepy.Stream(auth, listen)
 
     print "Streaming started..."
