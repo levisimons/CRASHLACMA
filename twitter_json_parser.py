@@ -25,11 +25,12 @@ class TwitterJsonParser():
 					tweet_data = json.loads(line)
 					
 					tweet = tweet_data["text"]
-					hashtag = tweet_data["entities"]["hashtags"][0]["text"] # won't need this 
+						
+					# scrub out any @mentions or #hashtags to leave behind address / text
 					tweet_text = ' '.join(re.sub("(@[A-Za-z0-9]+)|(#[A-Za-z0-9]+)|(\w+:\/\/\S+)"," ",tweet).split())
 					
 					# img uploaded via twitter
-					if data["entities"].get('media'): 
+					if tweet_data["entities"].get('media'): 
 						print "DEBUG: img uploaded"
 						img_url = tweet_data["entities"]["media"][0]["media_url"]	
 					# if img passed as url
@@ -37,14 +38,12 @@ class TwitterJsonParser():
 						print "DEBUG: img as url"
 						img_url = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', tweet)[0]
 	
-					print(tweet)
-					print(hashtag)
-					print(tweet_text)
-					print(img_url)
+					print("tweet: %s") % tweet
+					print("tweet_text: %s, img_url: %s") % (tweet_text, img_url)
 					
 					self.save_img_from_tweet(tweet_text, img_url)
 					
-					processed_tweets.extend([tweet, hashtag, tweet_text, img_url])
+					processed_tweets.extend([tweet, tweet_text, img_url])
 					
 		return processed_tweets
 						
