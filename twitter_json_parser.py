@@ -14,27 +14,24 @@ import time
 
 class TwitterJsonParser():
 	
-	# something runs this on lots of tweets
+	# parser useful fields from file of json tweet objects
 	def get_data_from_tweets(self, input_data):
-		DIR_RAW_TWEET_DATA='data_raw_tweets'
 		
-		data = []
+		tweet_data = []
 		processed_tweets = []
 		with open(input_data) as f:
 			for line in f:
 				if line.strip():
-					#print(line)
-					data = json.loads(line)
-					###pprint(data)
+					tweet_data = json.loads(line)
 					
-					tweet = data["text"]
-					hashtag = data["entities"]["hashtags"][0]["text"] # won't need this 
+					tweet = tweet_data["text"]
+					hashtag = tweet_data["entities"]["hashtags"][0]["text"] # won't need this 
 					tweet_text = ' '.join(re.sub("(@[A-Za-z0-9]+)|(#[A-Za-z0-9]+)|(\w+:\/\/\S+)"," ",tweet).split())
 					
 					# img uploaded via twitter
 					if data["entities"].get('media'): 
 						print "DEBUG: img uploaded"
-						img_url = data["entities"]["media"][0]["media_url"]	
+						img_url = tweet_data["entities"]["media"][0]["media_url"]	
 					# if img passed as url
 					else:  
 						print "DEBUG: img as url"
