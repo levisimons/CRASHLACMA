@@ -8,7 +8,7 @@ class SListener(StreamListener):
         self.counter = 0
         self.fprefix = fprefix
         self.output  = open(fprefix + '.' 
-                            + time.strftime('%Y%m%d-%H%M%S') + '.json', 'w')
+                            + time.strftime('%Y%m%d-%H%M%S') + '.json', 'wb')
         self.delout  = open('delete.txt', 'a')
 
     def on_data(self, data):
@@ -34,7 +34,7 @@ class SListener(StreamListener):
         if self.counter >= 20000:
             self.output.close()
             self.output = open('../streaming_data/' + self.fprefix + '.' 
-                               + time.strftime('%Y%m%d-%H%M%S') + '.json', 'w')
+                               + time.strftime('%Y%m%d-%H%M%S') + '.json', 'wb')
             self.counter = 0
 
         return
