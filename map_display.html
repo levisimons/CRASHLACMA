@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+      .labels {
+      	color: red;
+      	background-color: white;
+      	font-family: "Lucida Grande", "Arial", sans-serif;
+     	font-size: 10px;
+     	font-weight: bold;
+     	text-align: center;
+     	width: 40px;     
+     	border: 2px solid black;
+     	white-space: nowrap;
+   }
+    </style>
+    
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+    <script src="/path/to/markerwithlabel.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(34.0, -118.2),
+          zoom: 11,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+         
+        
+        var str = "34.0186425_-118.4069065_.PNG";
+		var arrayOfStr = str.split("_"); 
+		 
+		var str1 = "34.0203622_-118.4038507_.PNG";
+		var arrayOfStr1 = str1.split("_"); 
+		
+		var str2 = "34.0226966_-118.3953026_.PNG";
+		var arrayOfStr2 = str2.split("_"); 
+		  
+    	var marker = new google.maps.Marker({
+    		position: new google.maps.LatLng(arrayOfStr[0], arrayOfStr[1]),
+    		map: map,
+    		labelContent: "0", // your number
+    		icon: "data_approved_images/" + str,
+    		labelAnchor: new google.maps.Point(0, 50),
+    		size: new google.maps.Size(50, 50),
+    		labelClass: "labels", // the CSS class for the label
+    		labelStyle: {opacity: 0.75},
+    		title:"Hello World!"
+		});
+		
+		var marker = new google.maps.Marker({
+    		position: new google.maps.LatLng(arrayOfStr1[0], arrayOfStr1[1]),
+    		map: map,
+    		labelContent: "0", // your number
+    		icon: "data_approved_images/" + str1,
+    		labelAnchor: new google.maps.Point(0, 50),
+    		size: new google.maps.Size(50, 50),
+    		labelClass: "labels", // the CSS class for the label
+    		labelStyle: {opacity: 0.75},
+    		title:"Hello World!"
+		});
+		
+		var marker = new google.maps.Marker({
+    		position: new google.maps.LatLng(arrayOfStr2[0], arrayOfStr2[1]),
+    		map: map,
+    		labelContent: "0", // your number
+    		icon: "data_approved_images/" + str2,
+    		labelAnchor: new google.maps.Point(0, 50),
+    		size: new google.maps.Size(50, 50),
+    		labelClass: "labels", // the CSS class for the label
+    		labelStyle: {opacity: 0.75},
+    		title:"Hello World!"
+		});
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"/>
+  </body>
+</html>
