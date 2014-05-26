@@ -3,6 +3,9 @@ from pprint import pprint
 import re
 import urllib
 import time
+from geopy import geocoders
+import Image
+import os
 
 # TODO: handle test cases
 # testcases:
@@ -17,8 +20,10 @@ class TwitterJsonParser():
 	# parser useful fields from file of json tweet objects
 	def get_data_from_tweets(self, input_data):
 		
+		g = geocoders.GoogleV3()
 		tweet_data = []
 		processed_tweets = []
+		
 		with open(input_data) as f:
 			for line in f:
 				if line.strip():
@@ -28,6 +33,11 @@ class TwitterJsonParser():
 						
 					# scrub out any @mentions or #hashtags to leave behind address / text
 					tweet_text = ' '.join(re.sub("(@[A-Za-z0-9]+)|(#[A-Za-z0-9]+)|(\w+:\/\/\S+)"," ",tweet).split())
+					
+					# geocode address to lat/long
+					address, (lat, lng) = g.geocode(tweet_text)
+					# TODO: this is a good place to validate the address for an LA coordinate.
+					# if not LA, toss in a bucket to be human-examined
 					
 					# img uploaded via twitter
 					if tweet_data["entities"].get('media'): 
@@ -40,29 +50,35 @@ class TwitterJsonParser():
 	
 					print("tweet: %s") % tweet
 					print("tweet_text: %s, img_url: %s") % (tweet_text, img_url)
+					print("address: %s, lat: %s, lng: %s") % (address, lat, lng)
+					self.save_img_from_tweet(str(lat), str(lng), img_url)
 					
-					self.save_img_from_tweet(tweet_text, img_url)
-					
-					processed_tweets.extend([tweet, tweet_text, img_url])
+					processed_tweets.extend([address, str(lat), str(lng), img_url])
 					
 		return processed_tweets
 						
 	# this is run on one tweet at a time
-	def save_img_from_tweet(self, tweet_text, img_url):
-		DIR_FINISHED_IMGS='data_finished_images'
-			
+	def save_img_from_tweet(self, lat, lng, img_url):
+		DIR_FINISHED_IMGS = 'data_finished_images'
+		IMG_NAME = lat + '_' + lng + '_.PNG'	
+		
 		# TODO: check first to make sure filename does not already exist
 
 		# clean address to be usable as a filename
-		title = re.sub('[^a-zA-Z0-9\n]', '_', tweet_text) + '.jpg'
+		###title = re.sub('[^a-zA-Z0-9\n]', '_', address) + '.png' # using lat/long as name now
 
 		# save url to disk with address as filename
 		try:
-			file = urllib.urlretrieve(img_url, DIR_FINISHED_IMGS + '/' + title)
-			print("Saved: %s" % title)
+			file = urllib.urlretrieve(img_url, DIR_FINISHED_IMGS + '/' + IMG_NAME)
+			print("Saved: %s" % DIR_FINISHED_IMGS + '/' + IMG_NAME)
 		except IOError, e:
 			print 'could not retrieve %s' % url
 
+		# resizing requires a second save to disk. this should change when time permits.
+ 	 	im = Image.open(DIR_FINISHED_IMGS + '/' + IMG_NAME)
+  		im2 = im.resize((50, 50), Image.NEAREST) 
+  		im2.save(DIR_FINISHED_IMGS + '/' + IMG_NAME) 
+				
 		time.sleep(1.5)
 
 		print("--------------------------------------------------------") # DEBUG
