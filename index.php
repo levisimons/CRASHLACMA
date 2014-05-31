@@ -24,7 +24,7 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script src="/path/to/markerwithlabel.js" type="text/javascript"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+<!-- 
 <?php
 	$dir    = 'data_approved_images';
 	$files1 = scandir($dir);
@@ -35,9 +35,11 @@
 			myvar = '<?php echo $value;?>';
 			console.log(myvar);
 		</script>
+
 <?php
 	}
 ?>
+ -->
  
 	<script type="text/javascript">
       		function initialize() {
