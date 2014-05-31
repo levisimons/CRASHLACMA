@@ -73,7 +73,7 @@ class TwitterJsonParser():
  	 		try:
  	 			im = Image.open(DIR_FINISHED_IMGS + '/' + IMG_NAME)
  	 			# TODO: need to figure out what thumbnail size looks best on projector
-  				im2 = im.resize((20, 20), Image.NEAREST) 
+  				im2 = im.resize((40, 40), Image.NEAREST) 
   				im2.save(DIR_FINISHED_IMGS + '/thumb_' + IMG_NAME) 
   			except IOError, e:
 				print 'could not open resize and save %s' % IMG_NAME
