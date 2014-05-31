@@ -34,51 +34,34 @@
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
          
-        // currently hard-coded for prototype
-        var str = "34.0186425_-118.4069065_.PNG";
-		var arrayOfStr = str.split("_"); 
-		 
-		var str1 = "34.0203622_-118.4038507_.PNG";
-		var arrayOfStr1 = str1.split("_"); 
+        var imgThumbStack = [];
+        console.log("initial stack: " + imgThumbStack);
+         
+        var str = "thumb_34.0186425_-118.4069065_.PNG"; // pizza cat
+        imgThumbStack.push(str);
+ 
+		var str1 = "thumb_34.0226966_-118.3953026_.PNG";
+		imgThumbStack.push(str1);
 		
-		var str2 = "34.0226966_-118.3953026_.PNG";
-		var arrayOfStr2 = str2.split("_"); 
-		  
-    	var marker = new google.maps.Marker({
-    		position: new google.maps.LatLng(arrayOfStr[0], arrayOfStr[1]),
-    		map: map,
-    		labelContent: "0", // your number
-    		icon: "data_approved_images/" + str,
-    		labelAnchor: new google.maps.Point(0, 50),
-    		size: new google.maps.Size(50, 50),
-    		labelClass: "labels", // the CSS class for the label
-    		labelStyle: {opacity: 0.75},
-    		title:"Hello World!"
-		});
-		
-		var marker = new google.maps.Marker({
-    		position: new google.maps.LatLng(arrayOfStr1[0], arrayOfStr1[1]),
-    		map: map,
-    		labelContent: "0", // your number
-    		icon: "data_approved_images/" + str1,
-    		labelAnchor: new google.maps.Point(0, 50),
-    		size: new google.maps.Size(50, 50),
-    		labelClass: "labels", // the CSS class for the label
-    		labelStyle: {opacity: 0.75},
-    		title:"Hello World!"
-		});
-		
-		var marker = new google.maps.Marker({
-    		position: new google.maps.LatLng(arrayOfStr2[0], arrayOfStr2[1]),
-    		map: map,
-    		labelContent: "0", // your number
-    		icon: "data_approved_images/" + str2,
-    		labelAnchor: new google.maps.Point(0, 50),
-    		size: new google.maps.Size(50, 50),
-    		labelClass: "labels", // the CSS class for the label
-    		labelStyle: {opacity: 0.75},
-    		title:"Hello World!"
-		});
+// 		var str3 = "thumb_32.9415821_-117.1836399_.PNG"; 		
+// 		var str4 = "thumb_34.0254201_-118.3950297_.PNG"; 		
+// 		var str5 = "thumb_32.4042703_-97.2176273_.PNG";  
+
+		for (var i = 0; i < 2; i++) { 
+			console.log("stack[" + i + "]: " + imgThumbStack[i]);
+
+    		var marker = new google.maps.Marker({
+    			position: new google.maps.LatLng(imgThumbStack[i].split("_")[1], imgThumbStack[i].split("_")[2]),
+    			map: map,
+    			labelContent: "0", // your number
+    			icon: "data_approved_images/" + imgThumbStack[i],
+    			labelAnchor: new google.maps.Point(0, 50),
+    			size: new google.maps.Size(50, 50),
+    			labelClass: "labels", // the CSS class for the label
+    			labelStyle: {opacity: 0.75},
+    			title:"Hello World!"
+			});
+		}
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
