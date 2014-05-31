@@ -75,7 +75,7 @@
     					labelStyle: {opacity: 0.75},
     					title:"Nothing yet."
 				});
-//			}
+			}
 		}
       		
       	google.maps.event.addDomListener(window, 'load', initialize);
