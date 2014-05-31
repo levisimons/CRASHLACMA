@@ -62,26 +62,29 @@ class TwitterJsonParser():
 		DIR_FINISHED_IMGS = 'data_finished_images'
 		IMG_NAME = lat + '_' + lng + '_.PNG'	
 		
-		# TODO: check first to make sure filename does not already exist
+ 		if (False == os.path.isfile(DIR_FINISHED_IMGS + '/' + IMG_NAME)): 			
+			# save url to disk with address as filename
+			try:
+				file = urllib.urlretrieve(img_url, DIR_FINISHED_IMGS + '/' + IMG_NAME)
+				print("Saved: %s" % DIR_FINISHED_IMGS + '/' + IMG_NAME)
+			except IOError, e:
+				print 'could not retrieve %s' % IMG_NAME
 
-		# clean address to be usable as a filename
-		###title = re.sub('[^a-zA-Z0-9\n]', '_', address) + '.png' # using lat/long as name now
-
-		# save url to disk with address as filename
-		try:
-			file = urllib.urlretrieve(img_url, DIR_FINISHED_IMGS + '/' + IMG_NAME)
-			print("Saved: %s" % DIR_FINISHED_IMGS + '/' + IMG_NAME)
-		except IOError, e:
-			print 'could not retrieve %s' % url
-
-		# resizing requires a second save to disk. this should change when time permits.
- 	 	im = Image.open(DIR_FINISHED_IMGS + '/' + IMG_NAME)
-  		im2 = im.resize((50, 50), Image.NEAREST) 
-  		im2.save(DIR_FINISHED_IMGS + '/' + IMG_NAME) 
+ 	 		try:
+ 	 			im = Image.open(DIR_FINISHED_IMGS + '/' + IMG_NAME)
+ 	 			# TODO: need to figure out what thumbnail size looks best on projector
+  				im2 = im.resize((20, 20), Image.NEAREST) 
+  				im2.save(DIR_FINISHED_IMGS + '/thumb_' + IMG_NAME) 
+  			except IOError, e:
+				print 'could not open resize and save %s' % IMG_NAME
 				
-		time.sleep(1.5)
+			time.sleep(1.5)
 
-		print("--------------------------------------------------------") # DEBUG
+			print("--------------------------------------------------------") # DEBUG
 
+		else:
+ 			print("file already exists. Skipping %s") % DIR_FINISHED_IMGS + '/' + IMG_NAME
+ 			return
+ 		
 		return 
 	
