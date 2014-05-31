@@ -38,6 +38,7 @@
 <?php
 	}
 ?>
+<!-- 
 	<script type="text/javascript">
       		function initialize() {
         		var mapOptions = {
@@ -52,7 +53,7 @@
 			var imgThumbStack = [];
         
 			console.log("initial stack: " + imgThumbStack); 
-        		imgThumbStack.push("thumb_34.0186425_-118.4069065_.PNG"); // pizza cat
+        	imgThumbStack.push("thumb_34.0186425_-118.4069065_.PNG"); // pizza cat
 			imgThumbStack.push("thumb_34.0226966_-118.3953026_.PNG"); // shark cat
 			imgThumbStack.push("thumb_32.9415821_-117.1836399_.PNG"); // san diego cheeseburger
 			imgThumbStack.push("thumb_34.0254201_-118.3950297_.PNG"); // books
@@ -76,9 +77,9 @@
 			}
 		}
       		
-      		google.maps.event.addDomListener(window, 'load', initialize);
-	
+      	google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
+ -->
 </head>
 <body>
 	<p>hi</p>
