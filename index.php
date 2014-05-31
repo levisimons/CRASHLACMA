@@ -60,21 +60,21 @@
 				imgThumbStack.push("thumb_34.0254201_-118.3950297_.PNG"); // books
 				imgThumbStack.push("thumb_32.4042703_-97.2176273_.PNG"); // texas hamster
 		
-// 				// generates image thumbnails on the map
-// 				for (var i = 0; i < 5; i++) { 
-// 					console.log("stack[" + i + "]: " + imgThumbStack[i]);
-// 
-//     				var marker = new google.maps.Marker({
-//     					position: new google.maps.LatLng(imgThumbStack[i].split("_")[1], imgThumbStack[i].split("_")[2]),
-//     					map: map,
-//     					labelContent: "0", 
-//     					icon: "data_approved_images/" + imgThumbStack[i],
-//     					labelAnchor: new google.maps.Point(0, 50),
-//     					size: new google.maps.Size(50, 50),
-//     					labelClass: "labels", 
-//     					labelStyle: {opacity: 0.75},
-//     					title:"Nothing yet."
-// 				});
+				// generates image thumbnails on the map
+				for (var i = 0; i < 5; i++) { 
+					console.log("stack[" + i + "]: " + imgThumbStack[i]);
+
+    				var marker = new google.maps.Marker({
+    					position: new google.maps.LatLng(imgThumbStack[i].split("_")[1], imgThumbStack[i].split("_")[2]),
+    					map: map,
+    					labelContent: "0", 
+    					icon: "data_approved_images/" + imgThumbStack[i],
+    					labelAnchor: new google.maps.Point(0, 50),
+    					size: new google.maps.Size(50, 50),
+    					labelClass: "labels", 
+    					labelStyle: {opacity: 0.75},
+    					title:"Nothing yet."
+				});
 //			}
 		}
       		
