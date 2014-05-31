@@ -1,7 +1,11 @@
 from twitter_json_parser import TwitterJsonParser
 from nose.tools import assert_equals
+from mock import Mock
 
+mock = Mock()
 parser = TwitterJsonParser()
+
+mock.get_data_from_tweets('data_raw_tweets/sample_mixed_data.json')
 
 def test_get_data_from_tweets():
 	assert_equals(str(parser.get_data_from_tweets('data_raw_tweets/sample_mixed_data.json')), 
