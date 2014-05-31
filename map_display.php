@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
@@ -46,30 +47,10 @@
         
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
-
- 		var dir = "data_approved_images/";
-
-		if (window.File && window.FileReader && window.FileList && window.Blob) {
-			console.log("no problem");
-		} else {
-	  		console.log("problem");
-		}
-       
-		// var fileextension = ".PNG";
-// 		$.ajax({
-//     		//This will retrieve the contents of the folder if the folder is configured as 'browsable'
-//     		url: dir,
-//     		success: function (data) {
-//         		$(data).find("a:contains(" + fileextension + ")").each(function () {
-//             		var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-//             		//$("body").append($("<img src=" + dir + filename + "></img>"));
-//             		console.log("found: " + filename);
-//         		});
-//     		}
-// 		});
 		
         // generate queue of images to show
         // still prototype-y
+        // this will eventually be replaced with stuff grabbed from php above
         var imgThumbStack = [];
         console.log("initial stack: " + imgThumbStack); 
         imgThumbStack.push("thumb_34.0186425_-118.4069065_.PNG"); // pizza cat
