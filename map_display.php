@@ -20,6 +20,7 @@
     </style>
     
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="/path/to/markerwithlabel.js" type="text/javascript"></script>
 
 <?php
 	$dir    = 'data_approved_images';
