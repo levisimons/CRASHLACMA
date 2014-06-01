@@ -32,7 +32,7 @@
 		// for each image file in the approved directory
 		$count = 0;
 		foreach ($files1 as $value) {
-			if (strpos($value,'thumb') !== false && count <= 5) {
+			if (strpos($value,'thumb') !== false) {
 	?>
 	<script>
 				myvar = '<?php echo $value;?>';
