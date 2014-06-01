@@ -22,7 +22,9 @@
     
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-	var imgThumbStack = [];
+	<script type="text/javascript">
+		var imgThumbStack = [];
+	</script>
 <?php
 	$dir    = 'data_approved_images';
 	$files1 = scandir($dir);
