@@ -32,20 +32,20 @@
 		// for each image file in the approved directory
 		$count = 0;
 		foreach ($files1 as $value) {
-			if (strpos($value,'thumb') !== false && $count < 5) {
-				$count++;
+			if (strpos($value,'thumb') !== false && $count < 3) {		
 	?>
 	<script>
-				count = '<?php echo $count;?>';
-				//myvar = '<?php echo $value;?>';
 				imgThumbStack.push('<?php echo $value;?>');
 				console.log(imgThumbStack);
+				
+				// just here for debug
+				count = '<?php echo $count;?>';			
 				console.log(count);
 				// lock the files or rename them or something after
 	</script>
 
 	<?php
-					
+				$count++;		
 			}
 		}
 	?>
