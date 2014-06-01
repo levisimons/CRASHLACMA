@@ -22,6 +22,7 @@
     
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
+	var imgThumbStack = [];
 <?php
 	$dir    = 'data_approved_images';
 	$files1 = scandir($dir);
@@ -30,7 +31,8 @@
 ?>
 	<script>
 		myvar = '<?php echo $value;?>';
-		console.log(myvar);
+		imgThumbStack.push('<?php echo $value;?>');
+		console.log(imgThumbStack);
 	</script>
 
 <?php
@@ -51,14 +53,14 @@
         // generate queue of images to show
         // still prototype-y
         // this will eventually be replaced with stuff grabbed from php above
-        var imgThumbStack = [];
+        
         console.log("initial stack: " + imgThumbStack); 
-        imgThumbStack.push("thumb_34.0186425_-118.4069065_.PNG"); // pizza cat
-		imgThumbStack.push("thumb_34.0226966_-118.3953026_.PNG"); // shark cat
-		imgThumbStack.push("thumb_32.9415821_-117.1836399_.PNG"); // san diego cheeseburger
-		imgThumbStack.push("thumb_34.0254201_-118.3950297_.PNG"); // books
-		imgThumbStack.push("thumb_32.4042703_-97.2176273_.PNG"); // texas hamster
-		
+   //      imgThumbStack.push("thumb_34.0186425_-118.4069065_.PNG"); // pizza cat
+// 		imgThumbStack.push("thumb_34.0226966_-118.3953026_.PNG"); // shark cat
+// 		imgThumbStack.push("thumb_32.9415821_-117.1836399_.PNG"); // san diego cheeseburger
+// 		imgThumbStack.push("thumb_34.0254201_-118.3950297_.PNG"); // books
+// 		imgThumbStack.push("thumb_32.4042703_-97.2176273_.PNG"); // texas hamster
+// 		
 		// generates image thumbnails on the map
 		for (var i = 0; i < 5; i++) { 
 			console.log("stack[" + i + "]: " + imgThumbStack[i]);
