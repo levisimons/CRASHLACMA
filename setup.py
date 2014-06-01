@@ -19,4 +19,5 @@ setup(
         "Operating System :: OS Independent",
         "Topic :: Software Development",
         ],
-    long_description = """\
+    long_description = "none"
+    	)
