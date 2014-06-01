@@ -43,7 +43,7 @@
 	</script>
 
 	<?php
-				count += 1;
+				$count++;	
 			}
 		}
 	?>
