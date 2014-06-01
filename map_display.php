@@ -36,7 +36,8 @@
 				$count++;
 	?>
 	<script>
-				myvar = '<?php echo $value;?>';
+				count = '<?php echo $count;?>';
+				//myvar = '<?php echo $value;?>';
 				imgThumbStack.push('<?php echo $value;?>');
 				console.log(imgThumbStack);
 				console.log(count);
