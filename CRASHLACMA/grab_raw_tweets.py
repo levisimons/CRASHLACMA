@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from slistener import SListener
 import time, tweepy, sys
 

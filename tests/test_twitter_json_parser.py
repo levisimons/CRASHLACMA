@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from twitter_json_parser import TwitterJsonParser
 from nose.tools import assert_equals
 from mock import Mock
