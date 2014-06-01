@@ -45,6 +45,7 @@
 	</script>
 
 	<?php
+				rename($dir . '/' . $value , $dir . '/DONE' . $value);
 				$count++;		
 			}
 		}
