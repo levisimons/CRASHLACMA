@@ -25,21 +25,23 @@
 	<script type="text/javascript">
 		var imgThumbStack = [];
 	</script>
-<?php
-	$dir    = 'data_approved_images';
-	$files1 = scandir($dir);
+	<?php
+		$dir    = 'data_approved_images';
+		$files1 = scandir($dir);
 
-	foreach ($files1 as $value) {
-?>
+		foreach ($files1 as $value) {
+			if (strpos($a,'PNG') !== false) {
+	?>
 	<script>
-		myvar = '<?php echo $value;?>';
-		imgThumbStack.push('<?php echo $value;?>');
-		console.log(imgThumbStack);
+				myvar = '<?php echo $value;?>';
+				imgThumbStack.push('<?php echo $value;?>');
+				console.log(imgThumbStack);
 	</script>
 
-<?php
-	}
-?>
+	<?php
+			}
+		}
+	?>
 
     <script type="text/javascript">
       function initialize() {
