@@ -30,7 +30,7 @@
 		$files1 = scandir($dir);
 
 		foreach ($files1 as $value) {
-			if (strpos($a,'PNG') !== false) {
+			if (strpos($value,'PNG') !== false) {
 	?>
 	<script>
 				myvar = '<?php echo $value;?>';
