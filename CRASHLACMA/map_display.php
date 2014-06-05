@@ -65,7 +65,7 @@
             mapOptions);
 		
 		// generates image thumbnails on the map
-		for (var i = 0; i < 5; i++) { 
+		for (var i = 0; i < imgThumbStack.length; i++) { 
 			console.log("stack[" + i + "]: " + imgThumbStack[i]);
 
     		var marker = new google.maps.Marker({
