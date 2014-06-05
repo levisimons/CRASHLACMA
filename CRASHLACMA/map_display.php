@@ -36,7 +36,7 @@
 			if (strpos($value,'thumb') !== false && $count < 8) {		
 	?>
 	<script>
-				imgThumbStack.push('<?php echo $value.'hi';?>');
+				imgThumbStack.push('<?php echo $value;?>');
 				console.log(imgThumbStack);
 				
 				// just here for debug
@@ -46,7 +46,7 @@
 	</script>
 
 	<?php
-				echo $dir . '/' . $value;
+				//echo $dir . '/' . $value;
 				//rename($dir . '/' . $value , $dir . '/DONE' . $value);
 				$count++;		
 			}
