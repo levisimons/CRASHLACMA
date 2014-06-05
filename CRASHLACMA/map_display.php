@@ -25,6 +25,7 @@
 	<script type="text/javascript">
 		var imgThumbStack = [];
 	</script>
+
 	<?php
 		$dir    = '../data_approved_images';
 		$files1 = scandir($dir);
@@ -46,7 +47,7 @@
 
 	<?php
 				echo $dir . '/' . $value;
-				rename($dir . '/' . $value , $dir . '/DONE' . $value);
+				//rename($dir . '/' . $value , $dir . '/DONE' . $value);
 				$count++;		
 			}
 		}
