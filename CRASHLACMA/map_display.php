@@ -36,7 +36,7 @@
 			if (strpos($value,'thumb') !== false && $count < 8) {		
 	?>
 	<script>
-				imgThumbStack.push('<?php echo $value;?>');
+				imgThumbStack.push('<?php echo $value.'hi';?>');
 				console.log(imgThumbStack);
 				
 				// just here for debug
