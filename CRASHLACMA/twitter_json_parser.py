@@ -61,7 +61,7 @@ class TwitterJsonParser():
 						
 	# this is run on one tweet at a time
 	def save_img_from_tweet(self, lat, lng, img_url):
-		DIR_FINISHED_IMGS = 'data_finished_images'
+		DIR_FINISHED_IMGS = '../data_finished_images'
 		IMG_NAME = lat + '_' + lng + '_.PNG'	
 		
  		if (False == os.path.isfile(DIR_FINISHED_IMGS + '/' + IMG_NAME)): 			
